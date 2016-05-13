@@ -37,11 +37,10 @@ define([
 
     /* ----- */
 
-    var gdqLogo = new createjs.Bitmap(preloader.getResult('kappa'));
-    //var GDQ_LOGO_WIDTH = gdqLogo.getBounds().width;
-    var GDQ_LOGO_WIDTH = 119;
+    var gdqLogo = new createjs.Bitmap(preloader.getResult('omnibar-logo-gdq'));
+    var GDQ_LOGO_WIDTH = gdqLogo.getBounds().width;
 
-    var pcfLogo = new createjs.Bitmap(preloader.getResult('shaolin'));
+    var pcfLogo = new createjs.Bitmap(preloader.getResult('omnibar-logo-pcf'));
     var PCF_LOGO_WIDTH = pcfLogo.getBounds().width;
     pcfLogo.restingX = 1173;
     pcfLogo.x = pcfLogo.restingX;
@@ -402,8 +401,8 @@ define([
                 onComplete: function() {
                     ctaLeftText.y = 38;
                     ctaRightText.y = -40;
-                    ctaLeftText.text = 'Donate to PCF at';
-                    ctaRightText.text = 'gamesdonequick.com';
+                    ctaLeftText.text = getMessage();
+                    ctaRightText.text = getMessage();
                 }
             }, 'showCTA_Line1Exit');
 

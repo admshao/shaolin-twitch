@@ -2,7 +2,7 @@
 
 module.exports = function(nodecg) {
     // Initialize this here because there's kinda nowhere better to do it.
-    nodecg.Replicant('displayDuration', {defaultValue: 10});
+    nodecg.Replicant('displayDuration', {defaultValue: 3});
 
     try {
         require('./schedule')(nodecg);
@@ -82,7 +82,7 @@ module.exports = function(nodecg) {
     }
     
     try {
-        require('./twitter')(nodecg);
+        //require('./twitter')(nodecg);
     } catch (e) {
         nodecg.log.error('Failed to load "twitter" lib:', e.stack);
         process.exit(1);
