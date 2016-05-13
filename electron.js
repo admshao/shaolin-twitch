@@ -5,10 +5,10 @@ const BrowserWindow = electron.BrowserWindow;  // Module to create native browse
 
 // Report crashes to our server.
 electron.crashReporter.start({
-  productName: 'Shaolindota',
-  companyName: 'NomadTV',
-  submitURL: 'https://nomadtv.com.br/pocotohGORDO',
-  autoSubmit: true
+  productName: 'shaolin-twitch',
+  companyName: 'shaolindota',
+  submitURL: 'http://nomadtv.com.br/',
+  autoSubmit: false
 });
 
 // Keep a global reference of the window object, if you don't, the window will
