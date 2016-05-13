@@ -1,26 +1,31 @@
+# shaolin-twitch
+The on-stream graphics used on twitch.tv/shaolindota channel.
+
 # agdq16-layouts
 The on-stream graphics used during Awesome Games Done Quick 2016.
 
-This is a [NodeCG](http://github.com/nodecg/nodecg) 0.7 bundle. You will need to have NodeCG 0.7 installed to run it.
+This was heavily based on [agdq16-layouts](https://github.com/GamesDoneQuick/agdq16-layouts) so big thanks to Alex and Chris
 
-## Video Walkthrough
+This is a [NodeCG](https://github.com/nodecg/nodecg) ~0.7.0 bundle. You will need to have NodeCG ~0.7.0 installed to run it.
+It IS NOT compatible with ~0.8.0
+
+## Video Walkthrough on NodeCG
 [A ten-part video series explaining the structure and function of this NodeCG bundle.](https://www.youtube.com/playlist?list=PL1EO2PfU4nFnB4c40SzUpulvYvVmPxeTx)
 
 ## Installation
-- Install to `nodecg/bundles/agdq16-layouts`.
+- Install to `nodecg/bundles/shaolin-twitch`.
 - Install `bower` if you have not already (`npm install -g bower`)
-- **WINDOWS**: Follow [these instructions](https://github.com/nodejs/node-gyp/issues/629#issuecomment-153196245) to set up a build chain to compile `agdq16-layouts`' dependencies.
-- **LINUX**: Install `build-essential` and Python 2.7, which are needed to compile `agdq16-layouts`' dependencies.
-- `cd nodecg/bundles/agdq16-layouts` and run `npm install`, then `bower install`
-- Run `node ./download_boxart.js` to populate the boxart.
-- Create the configuration file (see the [configuration][id] section below for more details)
+- **WINDOWS**: Follow [these instructions](https://github.com/nodejs/node-gyp/issues/629#issuecomment-153196245) to set up a build chain to compile `shaolin-twitch`' dependencies.
+- **LINUX**: Install `build-essential` and Python 2.7, which are needed to compile `shaolin-twitch`' dependencies.
+- `cd nodecg/bundles/shaolin-twitch` and run `npm install`, then `bower install`
+- Create the configuration file `nodecg/cfg/shaolin-twitch.json` based on `nodecg/bundles/shaolin-twitch/configschema.json`
 - Run the nodecg server: `nodecg start` (or `node index.js` if you don't have nodecg-cli) from the `nodecg` root directory.
 - Run the electron window:
   - For Windows:
-    - Create a shortcut in the `bundles/agdq16-layouts` folder with the location set to
-      `C:\path\to\nodecg\bundles\agdq16-layouts\node_modules\electron-prebuilt\dist\electron.exe` called Electron.
+    - Create a shortcut in the `bundles/shaolin-twitch` folder with the location set to
+      `C:\path\to\nodecg\bundles\shaolin-twitch\node_modules\electron-prebuilt\dist\electron.exe` called Electron.
     - Next, edit the properties of the link you created, add ` electron.js --remote-debugging-port=9222` to the end of
-      the `Target` value, and change the `Start in` folder to be `C:\path\to\nodecg\bundles\agdq16-layouts\`.
+      the `Target` value, and change the `Start in` folder to be `C:\path\to\nodecg\bundles\shaolin-twitch\`.
   - For Linux/Mac:
     - `cd` to the `bundles/agdq16-bundles` directory, then run `./node_modules/electron-prebuild/dist/electron electron.js --remote-debugging-port=9222`
 
@@ -34,37 +39,9 @@ learning tool and base to build from, rather than just taking and using it whole
 
 To reiterate, please don't just download and use this bundle as-is. Build something new from it.
 
-[id]: configuration
-## Configuration
-To configure this bundle, create and edit `nodecg/cfg/shaolin-twitch.json`.  
-Refer to [configschema.json][] for the structure of this file.
-[configschema.json]: configschema.json
-
 Example config:
 ```json
 {
-  "enableRestApi": true,
-  "x32": {
-    "address": "192.168.1.10",
-    "gameAudioChannels": [
-      {
-        "sd": 17,
-        "hd": 25
-      },
-      {
-        "sd": 19,
-        "hd": 27
-      },
-      {
-        "sd": 21,
-        "hd": null
-      },
-      {
-        "sd": 23,
-        "hd": null
-      }
-    ]
-  },
   "twitter": {
     "userId": "1234",
     "consumerKey": "aaa",
@@ -82,7 +59,7 @@ Example config:
 ```
 
 ## Fonts
-agdq16-layouts relies on the following [TypeKit](https://typekit.com/) fonts and weights:
+shaolin-twitch relies on the following [TypeKit](https://typekit.com/) fonts and weights:
 
  - Proxima Nova
   - Semibold
@@ -90,11 +67,11 @@ agdq16-layouts relies on the following [TypeKit](https://typekit.com/) fonts and
   - Extrabold
   - Black
 
-If you wish to access agdq16-layouts from anything other than `localhost`, 
+If you wish to access shaolin-twitch from anything other than `localhost`, 
 you will need to make your own TypeKit with these fonts and whitelist the appropriate addresses.
 
 ## License
-agdq16-layouts is provided under the Apache v2 license, which is available to read in the [LICENSE][] file.
+shaolin-twitch is provided under the Apache v2 license, which is available to read in the [LICENSE][] file.
 [license]: LICENSE
 
 ### Credits

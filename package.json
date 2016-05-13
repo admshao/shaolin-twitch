@@ -1,6 +1,6 @@
 {
   "name": "shaolin-twitch",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/admshao/shaolin-twitch.git"
@@ -12,7 +12,7 @@
   "scripts": {
     "electron": "electron electron.js --remote-debugging-port=9222"
   },
-  "description": "The on-stream graphics used during NomadTV Broadcast of Dota 2's Manila Major.",
+  "description": "The on-stream graphics used on twitch.tv/shaolindota Broadcast.",
   "license": "Apache-2.0",
   "nodecg": {
     "compatibleRange": "~0.7.0",
