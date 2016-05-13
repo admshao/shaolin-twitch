@@ -89,7 +89,7 @@ module.exports = function(nodecg) {
     }
     
     try {
-        require('./bot')(nodecg);
+        //require('./bot')(nodecg);
     } catch (e) {
         nodecg.log.error('Failed to load "twitch" lib:', e.stack);
         process.exit(1);
