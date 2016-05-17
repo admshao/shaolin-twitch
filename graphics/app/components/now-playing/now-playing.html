@@ -9,7 +9,7 @@
             left: 0;
             top: 126px;
             font-family: 'proxima-nova';
-            font-weight: 800;
+            font-weight: 750;
             color: white;
             text-transform: uppercase;
             flex-direction: column;
@@ -29,11 +29,10 @@
             background-color: #0075a1;
             will-change: transform;
         }
-
-        #musicNote {
-            position: absolute;
-            top: -4px;
-            left: 0;
+		
+		#coverContainer {
+            display: table; /* for some reason this fixes width issues */
+            will-change: transform;
         }
 
         #song,
@@ -43,11 +42,13 @@
         }
 
         #song {
+			align: center;
             font-size: 24px;
             line-height: 33px;
         }
 
         #album {
+			align: center;
             font-size: 18px;
             line-height: 28px;
         }
@@ -59,8 +60,10 @@
         </div>
 
         <div id="albumContainer">
-            <iron-image id="musicNote" src="music_note.png"></iron-image>
-            <span id="album">[[album]]</span>
+			<div id="coverContainer">
+				<iron-image fade preload src="[[cover]]"></iron-image>
+			</div>
+			<span id="album">[[album]]</span>
         </div>
     </template>
 </dom-module>

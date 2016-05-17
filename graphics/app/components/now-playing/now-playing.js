@@ -12,11 +12,12 @@ requirejs(['debug'], function(debug) {
 
         properties: {
             song: String,
-            album: String
+            album: String,
+			cover: String
         },
 
         observers: [
-            '_resizeContainers(song, album)'
+            '_resizeContainers(song, album, cover)'
         ],
 
         ready: function() {
@@ -68,6 +69,8 @@ requirejs(['debug'], function(debug) {
 
                         self.album = nowPlaying.value.album;
                         albumContainerProxy.x = '-100%';
+
+						self.cover = nowPlaying.value.cover;
 
                         songContainerWidth = songContainer.getBoundingClientRect().width;
                         albumContainerWidth = albumContainer.getBoundingClientRect().width;
