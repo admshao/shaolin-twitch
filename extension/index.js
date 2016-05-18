@@ -2,7 +2,7 @@
 
 module.exports = function(nodecg) {
     // Initialize this here because there's kinda nowhere better to do it.
-    nodecg.Replicant('displayDuration', {defaultValue: 3});
+    nodecg.Replicant('displayDuration', {defaultValue: 10});
 
     try {
         require('./schedule')(nodecg);
@@ -54,6 +54,13 @@ module.exports = function(nodecg) {
     }
 
     try {
+        require('./twitter')(nodecg);
+    } catch (e) {
+        nodecg.log.error('Failed to load "twitter" lib:', e.stack);
+        process.exit(1);
+    }
+
+    try {
         require('./osc')(nodecg);
     } catch (e) {
         nodecg.log.error('Failed to load "osc" lib:', e.stack);
@@ -74,24 +81,17 @@ module.exports = function(nodecg) {
         process.exit(1);
     }
 
-    try {
-        require('./state')(nodecg);
-    } catch (e) {
-        nodecg.log.error('Failed to load "state" lib:', e.stack);
-        process.exit(1);
-    }
-    
-    try {
-        //require('./twitter')(nodecg);
+	try {
+        require('./listener')(nodecg);
     } catch (e) {
         nodecg.log.error('Failed to load "twitter" lib:', e.stack);
         process.exit(1);
     }
-    
+
     try {
-        //require('./bot')(nodecg);
+        require('./state')(nodecg);
     } catch (e) {
-        nodecg.log.error('Failed to load "twitch" lib:', e.stack);
+        nodecg.log.error('Failed to load "state" lib:', e.stack);
         process.exit(1);
     }
 };
