@@ -23,6 +23,7 @@ module.exports = function(nodecg) {
     var pulseTimeout;
     var pulsing = nodecg.Replicant('nowPlayingPulsing', {defaultValue: false, persistent: false});
     var nowPlaying = nodecg.Replicant('nowPlaying', {defaultValue: {}, persistent: false});
+	var showNowPlaying = nodecg.Replicant('showNowPlaying', {defaultValue: false, persistent: false});
 
     nodecg.listenFor('pulseNowPlaying', pulse);
     function pulse() {
@@ -33,6 +34,7 @@ module.exports = function(nodecg) {
         // Hard-coded 12 second duration
         pulseTimeout = setTimeout(function() {
             pulsing.value = false;
+			showNowPlaying.value = false;
         }, 12 * 1000);
     }
 

@@ -37,6 +37,13 @@
         marquee.innerText = newVal.song + ' - ' + newVal.album;
     });
 
+	var showNowPlaying = nodecg.Replicant('showNowPlaying');
+	showNowPlaying.on('change', function(oldVal, newVal) {
+		if (newVal) {
+			nodecg.sendMessage('pulseNowPlaying');
+		}
+	});
+ 
     show.addEventListener('click', function() {
         nodecg.sendMessage('pulseNowPlaying');
     });
