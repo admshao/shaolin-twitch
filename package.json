@@ -137,7 +137,6 @@
     "request": "^2.67.0",
     "request-promise": "^1.0.2",
     "rieussec": "^0.3.0",
-    "sleep": "^3.0.1",
     "tmi.js": "0.0.29",
     "twitter-stream-api": "^0.4.1"
   },
