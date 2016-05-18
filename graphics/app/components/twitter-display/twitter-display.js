@@ -100,6 +100,7 @@ requirejs(['debug'], function(debug) {
                         this.$.body.fontSize = this.bodyStyle.fontSize + 'px';
                         this.$.body.innerHTML = tweet.text;
                         this.$.username.innerText = '@' + tweet.user.screen_name;
+                        this.$.icon.src = tweet.user.profile_image_url;
                         this.scaleDownBodyIfNecessary();
                     }.bind(this),
                     x: '0%',
