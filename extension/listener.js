@@ -7,7 +7,7 @@ module.exports = function(nodecg) {
 	
 	http.createServer(function (req, res) {
 		res.writeHead(200, {'Content-Type': 'text/plain'});
-		res.end(nowPlaying.value.song + ' - ' + nowPlaying.value.album);
+		res.end(nowPlaying.value.artistSong);
 		showNowPlaying.value = true;
 	}).listen(8082);
 	console.log('Twitch BOT listener running at port 8082');
