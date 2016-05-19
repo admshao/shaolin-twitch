@@ -13,7 +13,7 @@ module.exports = function(nodecg) {
     });
 
     singleInstance.on('graphicAvailable', function(url) {
-        if (url === '/graphics/agdq16-layouts/index.html') {
+        if (url === '/graphics/shaolin-twitch/index.html') {
             layoutState.value.page = 'closed';
             layoutState.value.currentLayout = null;
             adState.value = 'stopped';

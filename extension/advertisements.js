@@ -8,7 +8,7 @@ var debounce = require('debounce');
 var md5File = require('md5-file');
 
 var ADVERTISEMENTS_PATH = path.resolve(__dirname, '../graphics/advertisements');
-var BASE_URL = '/graphics/agdq16-layouts/advertisements/';
+var BASE_URL = '/graphics/shaolin-twitch/advertisements/';
 var IMAGE_EXTS = ['.png', '.jpg', '.gif'];
 var VIDEO_EXTS = ['.webm'];
 
@@ -28,7 +28,7 @@ module.exports = function(nodecg) {
     });
 
     var ads = nodecg.Replicant('ads', {defaultValue: [], persistent: false});
-    nodecg.Replicant('ftb', {defaultValue: false});
+    nodecg.Replicant('ftb', {defaultValue: false, persistent: false});
 
     var watcher = chokidar.watch([
         ADVERTISEMENTS_PATH + '/*.png',

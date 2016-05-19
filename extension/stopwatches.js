@@ -271,11 +271,11 @@ module.exports = function (nodecg) {
         nodecg.log.warn('"enableRestApi" is true, the stopwatch REST API will be active.');
         nodecg.log.warn('This API is COMPLETELY INSECURE. ONLY USE IT ON A SECURE LOCAL NETWORK.');
 
-        app.get('/agdq16-layouts/stopwatches', function (req, res) {
+        app.get('/shaolin-twitch/stopwatches', function (req, res) {
             res.json(stopwatches.value);
         });
 
-        app.put('/agdq16-layouts/stopwatch/:index/start', function (req, res) {
+        app.put('/shaolin-twitch/stopwatch/:index/start', function (req, res) {
             var result = handleStartTimeRequest(req.params.index);
             if (result) {
                 res.status(200).json(result);
@@ -284,7 +284,7 @@ module.exports = function (nodecg) {
             }
         });
 
-        app.put('/agdq16-layouts/stopwatch/:index/pause', function (req, res) {
+        app.put('/shaolin-twitch/stopwatch/:index/pause', function (req, res) {
             var result = handlePauseTimeRequest(req.params.index);
             if (result) {
                 res.status(200).json(result);
@@ -293,7 +293,7 @@ module.exports = function (nodecg) {
             }
         });
 
-        app.put('/agdq16-layouts/stopwatch/:index/finish', function (req, res) {
+        app.put('/shaolin-twitch/stopwatch/:index/finish', function (req, res) {
             var result = handleFinishTimeRequest(req.params.index);
             if (result) {
                 res.status(200).json(result);
@@ -302,7 +302,7 @@ module.exports = function (nodecg) {
             }
         });
 
-        app.put('/agdq16-layouts/stopwatch/:index/reset', function (req, res) {
+        app.put('/shaolin-twitch/stopwatch/:index/reset', function (req, res) {
             var result = handleResetTimeRequest(req.params.index);
             if (result) {
                 res.status(200).json(result);
@@ -311,7 +311,7 @@ module.exports = function (nodecg) {
             }
         });
 
-        app.put('/agdq16-layouts/stopwatch/:index/startfinish', function (req, res) {
+        app.put('/shaolin-twitch/stopwatch/:index/startfinish', function (req, res) {
             var index = req.params.index;
             var result;
 
@@ -334,8 +334,8 @@ module.exports = function (nodecg) {
         nodecg.log.info('"enableRestApi" is false, the stopwatch REST API will be unavailable');
     }
 
-    app.get('/agdq16-layouts/stopwatches/control', nodecg.util.authCheck,function (req, res) {
-        res.redirect('/graphics/agdq16-layouts/custom_controls/stopwatches/index.html');
+    app.get('/shaolin-twitch/stopwatches/control', nodecg.util.authCheck,function (req, res) {
+        res.redirect('/graphics/shaolin-twitch/custom_controls/stopwatches/index.html');
     });
 
     nodecg.mount(app);

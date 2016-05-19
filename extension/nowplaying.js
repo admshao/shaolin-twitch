@@ -7,7 +7,7 @@ module.exports = function(nodecg) {
         nodecg.log.error('cfg/manila-major.json was not found. "Now playing" graphic will be disabled.');
         return;
     } else if (typeof nodecg.bundleConfig.lastfm === 'undefined') {
-        nodecg.log.error('"lastfm" is not defined in cfg/agdq16-layouts.json! ' +
+        nodecg.log.error('"lastfm" is not defined in cfg/shaolin-twitch.json! ' +
             '"Now playing" graphic will be disabled.');
         return;
     }

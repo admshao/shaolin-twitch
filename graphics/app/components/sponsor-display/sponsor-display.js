@@ -5,6 +5,8 @@ requirejs(['debug'], function(debug) {
     var FADE_DURATION = 1;
     var FADE_EASE = Power1.easeInOut;
     var HOLD_DURATION = 20;
+	
+	nodecg.log.warn('to vivo');
 
     function oneTime(target, type, callback) {
         if (target.loaded) {
@@ -60,6 +62,7 @@ requirejs(['debug'], function(debug) {
 
         ready: function() {
             var sponsors = nodecg.Replicant('sponsors');
+			nodecg.log.warn('N# of sponsors: ' + sponsors.value.length);
             sponsors.on('change', function(oldVal, newVal) {
                 this.sponsors = newVal;
 

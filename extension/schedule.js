@@ -98,12 +98,12 @@ module.exports = function (nodecg) {
 
             /* jshint -W106 */
             var formattedSchedule = scheduleJSON.map(function(run) {
-                var boxartUrl = '/graphics/agdq16-layouts/img/boxart/default.png';
+                var boxartUrl = '/graphics/shaolin-twitch/img/boxart/default.png';
                 var boxartName = new Buffer(run.fields.display_name).toString('base64');
                 var boxartPath = path.resolve(__dirname, '../graphics/img/boxart/', boxartName +'.jpg');
 
                 if (fs.existsSync(boxartPath)) {
-                    boxartUrl = '/graphics/agdq16-layouts/img/boxart/' + boxartName + '.jpg';
+                    boxartUrl = '/graphics/shaolin-twitch/img/boxart/' + boxartName + '.jpg';
                 }
 
                 var runners = run.fields.runners.map(function(runnerId) {

@@ -41,8 +41,7 @@
     window.checkVideoPlayButton = function () {
         if (!window.playCooldown
             && window.adListSelectedAd
-            && window.adListSelectedAd.type === 'video'
-            && ftb.value === true) {
+            && window.adListSelectedAd.type === 'video') {
             playVideoButton.removeAttribute('disabled');
         } else {
             playVideoButton.setAttribute('disabled', 'true');

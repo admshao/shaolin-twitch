@@ -7,16 +7,17 @@ var md5File = require('md5-file');
 var path = require('path');
 
 var SPONSOR_IMAGES_PATH = path.resolve(__dirname, '../graphics/img/sponsors');
-var BASE_URL = '/graphics/agdq16-layouts/img/sponsors/';
+var BASE_URL = '/graphics/shaolin-twitch/img/sponsors/';
 var ALLOWED_EXTS = [
-    '.png'
+    '.png',
+	'.jpg'
 ];
 
 module.exports = function(nodecg) {
     nodecg.log.info('Monitoring "%s" for changes to sponsor logos...', SPONSOR_IMAGES_PATH);
 
     var sponsors = nodecg.Replicant('sponsors', {defaultValue: [], persistent: false});
-    var watcher = chokidar.watch(SPONSOR_IMAGES_PATH + '/*.png', {
+    var watcher = chokidar.watch(SPONSOR_IMAGES_PATH + '/*.*', {
         ignored: /[\/\\]\./,
         ignoreInitial: true
     });
@@ -63,12 +64,11 @@ module.exports = function(nodecg) {
         var sponsorsDir = fs.readdirSync(SPONSOR_IMAGES_PATH);
         sponsorsDir.forEach(function(filename) {
             var ext = path.extname(filename);
-            var filepath = path.join(SPONSOR_IMAGES_PATH, filename);
-
-            if (!extAllowed(ext)) {
+			if (!extAllowed(ext)) {
                 return;
             }
-
+			
+            var filepath = path.join(SPONSOR_IMAGES_PATH, filename);
             var parsedPath = path.parse(filepath);
             var nameParts = parsedPath.name.split('-');
             var sponsorName = nameParts[0];
@@ -76,7 +76,7 @@ module.exports = function(nodecg) {
 
             if (!sponsorName || !isValidOrientation(orientation) || nameParts.length !== 2) {
                 nodecg.log.error('[sponsors] Unexpected file name "%s". ' +
-                    'Please rename to this format: {name}-{orientation}.png', filename);
+                    'Please rename to this format: {name}-{orientation}', filename);
                 return;
             }
 

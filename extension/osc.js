@@ -27,10 +27,10 @@ module.exports = function(nodecg) {
     });
 
     if (!nodecg.bundleConfig) {
-        nodecg.log.error('cfg/agdq16-layouts.json was not found. Behringer X32 OSC integration will be disabled.');
+        nodecg.log.error('cfg/shaolin-twitch.json was not found. Behringer X32 OSC integration will be disabled.');
         return;
     } else if (typeof nodecg.bundleConfig.twitter === 'undefined') {
-        nodecg.log.error('"x32" is not defined in cfg/agdq16-layouts.json! ' +
+        nodecg.log.error('"x32" is not defined in cfg/shaolin-twitch.json! ' +
             'Behringer X32 OSC integration will be disabled.');
         return;
     }

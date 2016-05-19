@@ -103,13 +103,14 @@ define([
     nodecg.listenFor('stopAd', function() {
         adState.value = 'stopped';
         tl.clear();
-        tl.to(imageContainer, SLIDE_DURATION, {
-            x: -1280,
-            roundProps: 'x',
-            ease: Power2.easeIn,
-            onComplete: removeAdImages
+        tl.to(imageContainer, FADE_DURATION, {
+			opacity: 0,
+            ease: FADE_EASE,
+            onComplete: function() {
+				removeAdImages();
+				removeAdVideo();
+			}
         });
-        removeAdVideo();
     });
 
     // We assume that if we're hearing this message then the ad in question is fully preloaded.
@@ -143,7 +144,6 @@ define([
 
         // Clear any existing tweens. Advertisements ain't nothin' to fuck wit.
         tl.clear();
-        removeAdVideo();
         tl.add('start');
 
         // If we already have a next image, ???
@@ -158,10 +158,12 @@ define([
             imageContainer.appendChild(nextImage);
 
             tl.to(nextImage, FADE_DURATION, {
+				onStart: function() {
+                    imageContainer.removeChild(currentImage);
+				},
                 opacity: 1,
                 ease: FADE_EASE,
                 onComplete: function() {
-                    imageContainer.removeChild(currentImage);
                     currentImage = nextImage;
                     nextImage = null;
                 }
@@ -173,22 +175,23 @@ define([
             currentImage = img;
             imageContainer.appendChild(currentImage);
 
-            tl.to(imageContainer, SLIDE_DURATION, {
+            tl.to(imageContainer, FADE_DURATION, {
                 onStart: function() {
-                    currentImage.style.opacity = 1;
+                    //currentImage.style.opacity = 1;
                     adState.value = 'playing';
                 },
-                x: 0,
-                roundProps: 'x',
-                ease: Power2.easeOut
+				opacity: 1,
+                ease: FADE_EASE,
+				onComplete: function() {
+					removeAdVideo();
+				}
             }, 'start');
         }
 
         // Slide out after FADE_DURATION seconds.
-        tl.to(imageContainer, SLIDE_DURATION, {
-            x: -1280,
-            roundProps: 'x',
-            ease: Power2.easeIn,
+        tl.to(imageContainer, FADE_DURATION, {
+            opacity: 0,
+            ease: FADE_EASE,
             onComplete: function() {
                 adState.value = 'stopped';
                 removeAdImages();
@@ -207,6 +210,7 @@ define([
             imageContainer.removeChild(nextImage);
             nextImage = null;
         }
+		imageContainer.style.opacity = 0;
     }
 
     function showAdVideo(video) {

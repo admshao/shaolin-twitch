@@ -19,15 +19,15 @@ module.exports = function(nodecg) {
     var TARGET_USER_ID = nodecg.bundleConfig.twitter.userId;
 
     // Create a route to serve the emoji lib
-    app.get('/agdq16-layouts/emoji.png', function(req, res) {
+    app.get('/shaolin-twitch/emoji.png', function(req, res) {
         var emojiPNGPath = path.resolve(__dirname, '../../node_modules/emoji/lib/emoji.png');
         res.sendFile(emojiPNGPath);
     });
-    app.get('/agdq16-layouts/emoji.css', function(req, res) {
+    app.get('/shaolin-twitch/emoji.css', function(req, res) {
         var emojiCSSPath = path.resolve(__dirname, '../../node_modules/emoji/lib/emoji.css');
         res.sendFile(emojiCSSPath);
     });
-    app.get('/agdq16-layouts/twitter/shared.css', function(req, res) {
+    app.get('/shaolin-twitch/twitter/shared.css', function(req, res) {
         var sharedCSSPath = path.resolve(__dirname, 'shared.css');
         res.sendFile(sharedCSSPath);
     });

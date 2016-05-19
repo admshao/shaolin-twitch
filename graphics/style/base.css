@@ -22,9 +22,9 @@ body {
 }
 
 #imageAdContainer {
-    z-index: 11;
+    z-index: 12;
     background-color: black;
-    transform: translateX(-1280px);
+    opacity: 0;
 }
 
 #imageAdContainer img {
