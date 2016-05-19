@@ -6,6 +6,7 @@ bower_components
 
 /graphics/advertisements/*
 /graphics/img/boxart/*
+/graphics/img/sponsors/*
 !/graphics/img/boxart/default.png
 !.empty_directory
 
