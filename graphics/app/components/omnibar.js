@@ -9,8 +9,6 @@ define([
 ], function (preloader, globals, Stage, layout, numeral, tabulate) {
     'use strict';
 
-    var ircMessages = nodecg.Replicant('irc');
-
     var OMNIBAR_HEIGHT = 55;
     var OMNIBAR_WIDTH_MINUS_LOGO = 1161;
     var CTA_VERT_SLIDE_TIME = 0.6;
@@ -354,10 +352,6 @@ define([
 
     /* ----- */
 
-	function getMessage() {
-		return ircMessages.value.length > 0 ? ircMessages.value.shift() : "Ainda Nenhuma Msg";
-	}
-
     function showCTA(immediate) {
         if (immediate) tl.clear();
 
@@ -369,8 +363,8 @@ define([
         // Move PCF logo to center
         tl.to(pcfLogo, 1.2, {
             onStart: function() {
-                ctaLeftText.text = getMessage();
-                ctaRightText.text = getMessage();
+                ctaLeftText.text = 'a';
+                ctaRightText.text = 'b';
             },
             x: pcfLogo.ctaX,
             ease: Power3.easeInOut
@@ -401,8 +395,8 @@ define([
                 onComplete: function() {
                     ctaLeftText.y = 38;
                     ctaRightText.y = -40;
-                    ctaLeftText.text = getMessage();
-                    ctaRightText.text = getMessage();
+                    ctaLeftText.text = 'c';
+                    ctaRightText.text = 'd';
                 }
             }, 'showCTA_Line1Exit');
 
